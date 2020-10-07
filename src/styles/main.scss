@@ -4,7 +4,14 @@
 @import './views';
 
 body {
-  background-color: rgb(6, 151, 66);
+  background-color: #845A6D;
+  color: #022F40;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.hide {
+  display: none;
 }
 
 #app {
@@ -14,8 +21,4 @@ body {
   flex-flow: row wrap;
   margin-top: 50px;
   width: 90%;
-}
-
-.hide {
-  display: none;
 }

@@ -1,23 +1,23 @@
-import farmersView from '../components/views/farmersView';
-import cowsView from '../components/views/cowsView';
-import addCowsView from '../components/views/addCowView';
-import updateCowsView from '../components/views/updateCowView';
-import singleFarmerView from '../components/views/singleFarmerView';
+import usersView from '../components/views/usersView';
+import boardsView from '../components/views/boardView';
+import addBoardView from '../components/views/addBoardView';
+import updateBoardView from '../components/views/updateBoardView';
+import singleUserView from '../components/views/singleUserView';
 
 const viewHelper = (id, arg) => {
   $('#app').html('');
 
   switch (id) {
-    case 'cows-link':
-      return cowsView.cowsView();
-    case 'farmers-link':
-      return farmersView.farmersView();
-    case 'add-cow-link':
-      return addCowsView.addCowView();
-    case 'update-cow-link':
-      return updateCowsView.updateCowView(arg);
-    case 'single-farmer':
-      return singleFarmerView.singleFarmerView(arg);
+    case 'boards-link':
+      return boardsView.boardsView();
+    case 'users-link':
+      return usersView.usersView();
+    case 'add-board-link':
+      return addBoardView.addBoardView();
+    case 'update-board-link':
+      return updateBoardView.updateBoardView(arg);
+    case 'single-user':
+      return singleUserView.singleUserView(arg);
     default:
       return console.warn('nothing clicked');
   }
@@ -30,14 +30,14 @@ const viewListener = (view) => {
     viewHelper(e.currentTarget.id);
   });
 
-  $('body').on('click', '.update-cow', (e) => {
-    const cowFirebaseKey = e.currentTarget.id;
-    viewHelper('update-cow-link', cowFirebaseKey);
+  $('body').on('click', '.update-board', (e) => {
+    const boardFirebaseKey = e.currentTarget.id;
+    viewHelper('update-board-link', boardFirebaseKey);
   });
 
-  $('body').on('click', '.card.farmer .see-cows', (e) => {
-    const farmerUid = e.currentTarget.id;
-    viewHelper('single-farmer', farmerUid);
+  $('body').on('click', '.card.user .see-boards', (e) => {
+    const userUid = e.currentTarget.id;
+    viewHelper('single-user', userUid);
   });
 };
 

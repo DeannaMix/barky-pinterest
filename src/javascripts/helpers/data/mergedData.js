@@ -1,34 +1,33 @@
-import cowData from './cowData';
-import farmerData from './farmerData';
+import boardData from './boardData';
+import userData from './userData';
 
-const getDataForCowsView = () => new Promise((resolve, reject) => {
-  cowData.getAllCows().then((cowResponse) => {
-    farmerData.getAllFarmers().then((farmerResponse) => {
-      const cowStuff = [];
-      cowResponse.forEach((cow) => {
-        const farmerObject = farmerResponse.find((farmer) => farmer.uid === cow.farmerUid);
-
-        const farmerUse = {
-          farmerName: farmerObject.name,
-          farmerEmail: farmerObject.email
+const getDataForBoardsView = () => new Promise((resolve, reject) => {
+  boardData.getAllBoards().then((boardResponse) => {
+    userData.getAllUsers().then((userResponse) => {
+      const boardStuff = [];
+      boardResponse.forEach((board) => {
+        const userObject = userResponse.find((user) => user.uid === board.userUid);
+        const userUse = {
+          userName: userObject.name,
+          userEmail: userObject.email
         };
 
-        cowStuff.push({ ...cow, ...farmerUse });
-        resolve(cowStuff);
+        boardStuff.push({ ...board, ...userUse });
+        resolve(boardStuff);
       });
     });
   }).catch((error) => reject(error));
 });
 
-const getSingleFarmerView = (farmerUid) => new Promise((resolve, reject) => {
-  farmerData.getSingleFarmer(farmerUid)
-    .then((farmerResponse) => {
-      cowData.getFarmerCows(farmerResponse.uid)
-        .then((cowResponse) => {
-          const finalObject = { farmer: farmerResponse, cows: cowResponse };
+const getSingleUserView = (userUid) => new Promise((resolve, reject) => {
+  userData.getSingleUser(userUid)
+    .then((userResponse) => {
+      boardData.getUsersBoards(userResponse.uid)
+        .then((boardResponse) => {
+          const finalObject = { user: userResponse, boards: boardResponse };
           resolve(finalObject);
         });
     }).catch((error) => reject(error));
 });
 
-export default { getDataForCowsView, getSingleFarmerView };
+export default { getDataForBoardsView, getSingleUserView };

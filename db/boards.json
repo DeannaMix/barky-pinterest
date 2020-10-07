@@ -1,0 +1,26 @@
+{
+    "board1": {
+        "name": "Jasper",
+        "breed": "Poodle",
+        "weight": 5,
+        "activity level": "medium"
+    },
+    "board2": {
+        "name": "Lily",
+        "breed": "Schanuzer",
+        "weight": 15,
+        "activity level": "Low"
+    },
+    "board3": {
+        "name": "Freeta",
+        "breed": "Bulldog",
+        "weight": 40,
+        "activity level": "medium"
+    },
+    "board4": {
+        "name": "Chonk",
+        "breed": "Great Dane",
+        "weight": 90,
+        "activity level": "high"
+    }
+}

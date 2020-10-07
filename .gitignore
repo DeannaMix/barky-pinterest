@@ -6,4 +6,4 @@ dist/
 build/
 .firebase/
 # TODO: TALK ABOUT THIS:
-src/javascripts/helpers/apiKeys.json
+src/javascripts/helpers/data/apiKeys.json
