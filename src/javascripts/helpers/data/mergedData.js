@@ -9,7 +9,6 @@ const getDataForBoardsView = () => new Promise((resolve, reject) => {
         const userObject = userResponse.find((user) => user.uid === board.userUid);
         const userUse = {
           userName: userObject.name,
-          userEmail: userObject.email
         };
 
         boardStuff.push({ ...board, ...userUse });

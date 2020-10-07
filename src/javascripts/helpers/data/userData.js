@@ -29,7 +29,7 @@ const checkIfUserExistsInFirebase = (user) => {
             axios.patch(`${baseUrl}/users/${response.data.name}.json`, update);
           }).catch((error) => console.warn(error));
       } else {
-        console.warn('User Already Exists');
+        // console.warn('User Already Exists');
       }
       // NOTE FOR STUDENTS
       // Set session storage after we know that user is in DB so that we do not hit the API again during this session. Limit hits to the API.
